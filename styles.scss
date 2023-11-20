@@ -42,17 +42,20 @@ header {
     }
     
     .tabs {
+        cursor: pointer;
         padding: 8px;
         display: flex;
         position: relative;
         border-radius: 72px;
         background: #fff;
+        
 
         .tab {
             display: flex;
             padding: 0px;
             text-decoration: none;
             background: #fff;
+            cursor: pointer;
 
             .tab-content {
                 display: flex;
