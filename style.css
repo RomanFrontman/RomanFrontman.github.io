@@ -1,17 +1,313 @@
-/* Error: Undefined variable.
- *    ,
- * 27 |             color: $black;
- *    |                    ^^^^^^
- *    '
- *   styles.scss 27:20  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 27 \2502              color: $black;\a    \2502                     ^^^^^^\a    \2575 \a   styles.scss 27:20  root stylesheet";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Titillium+Web:wght@300;600&display=swap");
+body {
+  margin: 0 auto;
+  background-color: #ECEDFF;
+  font-family: Inter, sans-serif;
+  padding: 64px;
 }
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1312px;
+  font-family: Inter, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 38px;
+}
+header .title h1 {
+  color: #222531;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+header .title p {
+  color: #616E85;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding-right: 24px;
+}
+header .tabs {
+  padding: 8px;
+  display: flex;
+  position: relative;
+  border-radius: 72px;
+  background: #fff;
+}
+header .tabs .tab {
+  display: flex;
+  padding: 0px;
+  text-decoration: none;
+  background: #fff;
+}
+header .tabs .tab .tab-content {
+  display: flex;
+  padding: 12px 24px;
+}
+header .tabs .tab input {
+  position: absolute;
+  visibility: hidden;
+}
+header .tabs .tab input:checked + .tab-content {
+  border-radius: 40px;
+  background-color: #4C57FB;
+  transition: 0.3s;
+}
+header .tabs .tab input:checked + .tab-content .switcher-icon path {
+  stroke: #FFFFFF;
+}
+header .tabs .tab input:checked + .tab-content .switcher-text {
+  color: #FFFFFF;
+}
+header .tabs .tab .switcher-icon {
+  width: 16px;
+  margin-right: 8px;
+}
+header .tabs .tab .switcher-icon path {
+  stroke: #4C57FB;
+}
+header .tabs .tab .switcher-text {
+  margin: 0 auto;
+  color: #222531;
+}
+
+main .dashboard-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+}
+main .dashboard-container .card-container {
+  width: 100%;
+  max-height: 208px;
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 0px 8px 24px 0px rgba(81, 85, 195, 0.08);
+}
+main .dashboard-container .card-container .card-container-content-wave {
+  height: calc(100% - 64px);
+  display: flex;
+  align-items: end;
+  background-color: rgba(241, 139, 92, 0.0784313725);
+}
+main .dashboard-container .card-container .wave {
+  width: 100%;
+  display: block;
+}
+main .dashboard-container .card-container .speed,
+main .dashboard-container .card-container .happiness {
+  display: block;
+  width: 140px;
+  margin: 0 auto;
+}
+main .dashboard-container .card-container.wide {
+  grid-column: span 2;
+  max-height: 292px;
+}
+main .dashboard-container .card-container .lines {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 68px;
+}
+main .dashboard-container .card-container .card-container-content-list {
+  color: #616E85;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  overflow-y: auto;
+  height: calc(100% - 64px);
+  padding-left: 24px;
+  padding-right: 12px;
+}
+main .dashboard-container .card-container .card-container-content-list p {
+  display: block;
+  padding: 16px 0;
+  border-top: 1px solid #EFF2F5;
+  margin: 0;
+}
+main .dashboard-container .card-container-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 24px 16px;
+}
+main .dashboard-container .card-container-top h3 {
+  margin: 0;
+}
+main .dashboard-container .card-container-top .info-container {
+  position: relative;
+  display: inline-block;
+}
+main .dashboard-container .card-container-top .info-container .info-tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 16px);
+  width: fit-content;
+  white-space: nowrap;
+  background-color: rgba(51, 51, 51, 0.8392156863);
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.3s ease;
+  transform: translateY(-50%);
+}
+main .dashboard-container .card-container-top .info-container .info-tooltip p {
+  margin: 0;
+}
+main .dashboard-container .card-container-top .info-container .info-tooltip.last {
+  left: calc(100% - 180px);
+}
+main .dashboard-container .card-container-top .info-container:hover .info-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+main .dashboard-container .card-container-bottom {
+  width: 100%;
+  display: flex;
+  background-color: #F18C5C;
+  border-radius: 0px 0px 16px 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+main .dashboard-container .card-container-bottom .percent {
+  color: #FFF;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-shadow: 0px 8px 24px rgba(81, 85, 195, 0.08);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 12px 0 12px 24px;
+  margin: 0;
+}
+main .dashboard-container .card-container-bottom .percent span {
+  font-size: 14px;
+}
+main .dashboard-container .card-container-bottom .icon-box {
+  display: flex;
+  align-items: center;
+  padding: 15px 22px 15px 0;
+}
+main .dashboard-container .card-container-bottom .icon-box .people {
+  width: 16px;
+  margin-right: 4px;
+}
+main .dashboard-container .card-container-bottom .icon-box .icon-box-desc {
+  font-size: 14px;
+  color: #FFF;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media screen and (max-width: 1180px) {
+  main .dashboard-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 32px;
+  }
+  main .dashboard-container .card-container.wide {
+    grid-column: span 1;
+  }
+  main .dashboard-container .card-container .card-container-top .info-container .info-tooltip {
+    left: calc(100% - 170px);
+    padding: 8px 8px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 32px;
+  }
+  header .tabs .tab .tab-content {
+    display: flex;
+    padding: 8px 12px;
+  }
+  header .tabs .tab .tab-content p {
+    font-size: 14px;
+  }
+  main .dashboard-container {
+    grid-gap: 25px;
+  }
+  main .dashboard-container .card-container.wide {
+    grid-column: span 2;
+  }
+}
+@media screen and (max-width: 780px) {
+  header {
+    flex-wrap: wrap;
+  }
+  header .title {
+    margin-bottom: 20px;
+  }
+  main .dashboard-container .card-container .lines {
+    margin-bottom: 36px;
+  }
+}
+@media screen and (max-width: 480px) {
+  header {
+    margin-bottom: 20px;
+  }
+  header .tabs {
+    padding: 4px;
+    overflow-x: auto;
+  }
+  header .title h1 {
+    color: #222531;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
+  header .title p {
+    color: #616E85;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+    padding-right: 24px;
+  }
+  body {
+    padding: 20px;
+  }
+  main .dashboard-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 18px;
+  }
+  main .dashboard-container .card-container.wide {
+    grid-column: span 1;
+  }
+  main .dashboard-container .card-container .lines {
+    margin-bottom: 18px;
+  }
+  main .dashboard-container .card-container .card-container-content-wave {
+    height: 140px;
+    display: flex;
+    align-items: end;
+    background-color: rgba(241, 139, 92, 0.0784313725);
+  }
+  main .dashboard-container .card-container-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px 8px;
+  }
+  main .dashboard-container .card-container-top h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+  main .dashboard-container .card-container-content-list p {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
